@@ -5,6 +5,7 @@ buildscript {
 }
 plugins {
   id 'org.roboscratch.robot' version '0.1.1'
+  id "org.sonarqube" version "3.3"
 }
 apply plugin: 'java'
 apply plugin: 'jacoco'
@@ -16,6 +17,14 @@ jar {
                    'Implementation-Version': version, 
                    'Main-Class': 'edu.jsu.mcis.HelloWorld'
     }
+}
+
+sonarqube {
+  properties {
+    property "sonar.projectKey", "rumburakcloud_gradle-hello-world"
+    property "sonar.organization", "rumburakcloud"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
 }
 
 repositories {
